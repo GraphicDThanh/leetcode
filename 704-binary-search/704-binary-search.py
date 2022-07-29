@@ -4,29 +4,34 @@ class Solution(object):
         :type nums: List[int]
         :type target: int
         :rtype: int
-        """
-        # O(n) solution
-#         for i, n in enumerate(nums):
-#             if n == target:
-#                 return i
-            
+        """   
         # O(logn) solution
         # base on ascending order:
         # if the middle of the list smaller then target 
         # > move start to mid + 1
         # if the middle of the list larger then target 
         # > move end to mid - 1
+        length_nums = len(nums)
+        
+        if length_nums == 0:
+            return -1
+        
+        if length_nums == 1:
+            if nums[0] == target:
+                return 0
+            return -1
         
         start, end = 0, len(nums) - 1
 
         while start <= end:
             middle = int((start + end) / 2)
-
-            if nums[middle] == target:
+            num_middle = nums[middle]
+            if num_middle == target:
                 return middle
-            elif nums[middle] < target:
+            elif num_middle < target:
                 start = middle + 1
             else:
                 end = middle - 1
         
+        # not found
         return -1

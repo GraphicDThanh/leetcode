@@ -1,19 +1,10 @@
 function searchInsert(nums: number[], target: number): number {
-    // const len = nums.length;
-    // if (len == 0) return -1;
-    // if (len == 1) {
-    //     if (nums[0] < target) {
-    //         return 1
-    //     }
-    //     return 0
-    // }
-    
     // range search will be from 0 to len of the nums
     let l = 0, r = nums.length - 1;
 
     while(l <= r) {
-        // middle will = (left + right) // 2
-        // use left + (right - left) // 2 to avoid overflow
+        // middle will = (left + right) % 2
+        // use left + (right - left) % 2 to avoid overflow
         let m = l + (r - l) % 2;
 
         // if equal target, return index

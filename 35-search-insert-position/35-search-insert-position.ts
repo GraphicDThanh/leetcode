@@ -2,13 +2,12 @@ function searchInsert(nums: number[], target: number): number {
     const len = nums.length;
     if(len == 0) return -1;
     if (len == 1) {
-        if (nums[0] == target) {
-            return 0
-        } else if (nums[0] < target) {
+        if (nums[0] < target) {
             return 1
         }
         return 0
     }
+    
     // range search will be from 0 to len of the nums
     let l = 0, r = nums.length - 1;
     

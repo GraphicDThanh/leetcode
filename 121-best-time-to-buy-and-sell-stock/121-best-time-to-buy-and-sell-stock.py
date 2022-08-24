@@ -19,12 +19,11 @@ class Solution:
         max_profit = 0
         
         while r < len(prices):
-            profit = prices[r] - prices[l]
-            
             # only check if left price small than right price to set max profile
             if prices[l] < prices[r]:
-                if prices[r] - prices[l] > max_profit:
-                    max_profit = prices[r] - prices[l]
+                profit = prices[r] - prices[l]
+                if profit > max_profit:
+                    max_profit = profit
             else:
                 # if left price bigger then right price then move left to smaller price
                 l = r

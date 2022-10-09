@@ -8,14 +8,16 @@ class Solution:
         
         # Break s down to 2k, revert the first k and add to results
         for key, value in enumerate(indexes_2k):
+            
             if key + 1 >= len_indexes_2k:
+                # the rest is smaller than len_indexes_2k
                 chunk_2k = s[value:]
             else:
+                # a chunk 2k start by value and the next index of it
                 chunk_2k = s[value:indexes_2k[key + 1]]
 
             reverse_chunk_k = chunk_2k[0:k][::-1]
             transfer_chunk_2k = reverse_chunk_k + chunk_2k[k:]
-            
             result_s += transfer_chunk_2k
             
         return result_s
